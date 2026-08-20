@@ -4,15 +4,39 @@
     box-sizing: border-box;
 }
 
+@font-face {
+  font-family: "Cimet";
+  src:url("Glina\ Script\ em..otf");
+}
+
 .navbar {
     list-style: none;
-    display: flex;
-    gap: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 10fr 2fr;
+
     background-color: #d39165;
     color: #46041b;
     font-size: 20px;
     justify-content: center;
+    font-family: 'Cimet';
+    height: 90px;
+
+}
+#items{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 100px;
 }
 .navbar li{
-    padding: 20px;
+    padding-top: 30px;
+    font-size: 20px;
+}
+
+#logo{
+    background-image: url('logo.png');
+    width: 90px;
+    height: 90px;
+    background-size: contain;
+    margin-left: 40px;
+    
 }
