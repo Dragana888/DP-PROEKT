@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="mk">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Контакт — Цимет</title>
+
+    <style>
+        :root{
+            --bg: #ECD5C8;
+            --surface: #FFFFFF;
+            --text: #2B2B28;
+            --muted: #6B6A64;
+            --accent: #3F5D4F;
+            --accent-soft: #E9EFE9;
+            --border: #DDD8CC;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        .wrap {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            padding: 20px;
+            border-bottom: 1px solid var(--border);
+        }
+        .intro-section {
+            text-align: center;
+            padding: 60px 0 20px;
+        }
+        .eyebrow {
+            display: inline-block;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+        .intro-section h1 {
+            font-size: 32px;
+            margin: 0 0 10px;
+        }
+        .intro-section p {
+            color: var(--muted);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        @media (max-width: 600px) {
+            .intro-section h1 { font-size: 26px; }
+        }
+
+        .info-section { padding: 40px 0; }
+        .info-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .info-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 25px 20px;
+            text-align: center;
+            width: 220px;
+        }
+        .info-card .icon-circle {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--accent-soft);
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px;
+        }
+        .info-card strong {
+            display: block;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 6px;
+        }
+        .info-card p { margin: 2px 0; font-size: 15px; }
+        .info-card a { color: var(--text); }
+
+        .form-section { padding: 20px 0 60px; }
+        .form-card {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 30px;
+        }
+        .form-card h2 { text-align: center; margin-top: 0; }
+        .form-card > p { text-align: center; color: var(--muted); margin-bottom: 25px; }
+
+        .field { margin-bottom: 18px; }
+        .field label {
+            display: block;
+            font-size: 14px;
+            font-weight: bold;
+            color: var(--muted);
+            margin-bottom: 6px;
+        }
+
+        .input-icon {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 0 12px;
+            background: #fff;
+        }
+        .input-icon.top { align-items: flex-start; padding-top: 10px; }
+        .input-icon .icon { font-size: 18px; }
+        .input-icon input,
+        .input-icon textarea {
+            border: none;
+            outline: none;
+            flex: 1;
+            padding: 10px 0;
+            font-size: 15px;
+            font-family: inherit;
+            background: transparent;
+        }
+        .input-icon textarea { min-height: 120px; resize: vertical; }
+        .input-icon:focus-within { border-color: var(--accent); }
+
+        button[type="submit"] {
+            width: 100%;
+            background: var(--accent);
+            color: #fff;
+            border: none;
+            padding: 14px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        button[type="submit"]:hover { opacity: 0.9; }
+
+        .form-note {
+            font-size: 13px;
+            color: var(--muted);
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        #form-success {
+            display: none;
+            background: var(--accent-soft);
+            color: var(--accent);
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        footer {
+            background: var(--text);
+            color: #fff;
+            padding: 30px 20px;
+        }
+        footer .wrap {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        footer p { margin: 3px 0; font-size: 13px; opacity: 0.85; }
+        footer a { color: #fff; }
+    </style>
+</head>
+<body>
+<header></header>
+
+<main>
+
+    <section class="intro-section">
+        <div class="wrap">
+            <span class="eyebrow">Контакт</span>
+            <h1>Контактирајте нè</h1>
+            <p>За сите прашања, предлози или забелешки во врска со нашите услуги, слободно контактирајте нè. Секоја порака се разгледува и на неа одговараме во најкраток можен рок.</p>
+        </div>
+    </section>
+
+    <section class="info-section">
+        <div class="wrap">
+            <div class="info-grid">
+
+                <div class="info-card">
+                    <div class="icon-circle">🖂</div>
+                    <strong>Е-пошта</strong>
+                    <p><a href="mailto:cimet@gmail.com">cimet@gmail.com</a></p>
+                </div>
+
+                <div class="info-card">
+                    <div class="icon-circle">☏</div>
+                    <strong>Телефон</strong>
+                    <p><a href="tel:+38970123456">+389 70 123 456</a></p>
+                </div>
+
+                <div class="info-card">
+                    <div class="icon-circle">🖈</div>
+                    <strong>Адреса</strong>
+                    <p>Бул. Партизански Одреди 89,</p>
+                    <p>Скопје 1000</p>
+                </div>
+
+                <div class="info-card">
+                    <div class="icon-circle">⏲</div>
+                    <strong>Работно време</strong>
+                    <p>Пон – Нед:</p>
+                    <p>08:00 – 22:00</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="form-section">
+        <div class="wrap">
+            <div class="form-card">
+                <h2>Испратете порака</h2>
+                <p>Пополнете го формуларот и ќе Ви одговориме што е можно поскоро.</p>
+
+                <form id="contact-form">
+                    <div id="form-success">Ви благодариме! Пораката е испратена.</div>
+
+                    <div class="field">
+                        <label for="name">Име и презиме</label>
+                        <div class="input-icon">
+                            <span class="icon">☻</span>
+                            <input type="text" id="name" name="name" placeholder="Име Презиме" required>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label for="email">Е-пошта</label>
+                        <div class="input-icon">
+                            <span class="icon">🖂</span>
+                            <input type="email" id="email" name="email" placeholder="cimet@gmail.com" required>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label for="phone">Телефон</label>
+                        <div class="input-icon">
+                            <span class="icon">☏</span>
+                            <input type="tel" id="phone" name="phone" placeholder="+389 70 123 456">
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label for="message">Порака</label>
+                        <div class="input-icon top">
+                            <span class="icon">🗪</span>
+                            <textarea id="message" name="message" placeholder="Вашата порака пишете ја тука..." required></textarea>
+                        </div>
+                    </div>
+
+                    <button type="submit">Испрати порака</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <div class="wrap">
+        <div>
+            <p>Бул. Партизански Одреди 89, Скопје 1000</p>
+            <p>© 2026 Цимет</p>
+        </div>
+        <div>
+            <a>🅾 𝐈𝐧𝐬𝐭𝐚𝐠𝐫𝐚𝐦 ꕀ ⓕ Facebook ꕀ 【ꚠ】𝗧𝗶𝗸𝗼𝗸<p>cimet.mk</p></a>
+        </div>
+    </div>
+</footer>
+
+<!--<script>-->
+<!--    document.getElementById('contact-form').addEventListener('submit', function(e){-->
+<!--        e.preventDefault();-->
+<!--        document.getElementById('form-success').style.display = 'block';-->
+<!--        this.reset();-->
+<!--    });-->
+<!--</script>-->
+
+</body>
+</html>
