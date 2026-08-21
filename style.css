@@ -12,14 +12,15 @@
 .navbar {
     list-style: none;
     display: grid;
-    grid-template-columns: 1fr 1fr 10fr 2fr;
-
+    grid-template-columns: 1fr 110px 10fr 2fr;
+    padding-top: 10px;
     background-color: #d39165;
     color: #46041b;
     font-size: 20px;
     justify-content: center;
     font-family: 'Cimet';
     height: 90px;
+    box-sizing: border-box;
 
 }
 #items{
@@ -28,15 +29,33 @@
     margin-left: 100px;
 }
 .navbar li{
-    padding-top: 30px;
+    /* padding: 10px 5px; */
     font-size: 20px;
+    cursor: pointer;
+    height: 50px;
+    box-sizing: border-box;
+    padding: 12px;
+    border-radius: 5px;
+    margin-top: 6px;
+    width: 140px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.navbar h3{
+    padding-top: 18px;
+}
+
+.navbar li:hover{
+    background-color: #7a543a;
+    color: white;
 }
 
 #logo{
     background-image: url('logo.png');
-    width: 90px;
-    height: 90px;
+    width: 70px;
+    height: 70px;
     background-size: contain;
     margin-left: 40px;
-    
+    /* margin-top: 10px; */
 }
