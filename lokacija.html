@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="mk">
+<head>
+    <meta charset="UTF-8" />
+    <title>Локации</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+    <style>
+        :root{
+            --bg: #ECD5C8;
+            --surface: #FFFFFF;
+            --text: #2B2B28;
+            --muted: #6B6A64;
+            --accent: #3F5D4F;
+            --accent-soft: #E9EFE9;
+            --border: #DDD8CC;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        .wrap {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            padding: 20px;
+            border-bottom: 1px solid var(--border);
+        }
+        .intro-section {
+            text-align: center;
+            padding: 60px 0 20px;
+        }
+        .eyebrow {
+            display: inline-block;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+        .intro-section h1 {
+            font-size: 32px;
+            margin: 0 0 10px;
+        }
+        .intro-section p {
+            color: var(--muted);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        @media (max-width: 600px) {
+            .intro-section h1 { font-size: 26px; }
+        }
+
+        .locations-section { padding: 40px 0 60px; }
+        .locations-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .location-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 25px;
+            width: 280px;
+        }
+        .location-card .icon-circle {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--accent-soft);
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 12px;
+        }
+        .location-card h3 {
+            margin: 0 0 10px;
+            font-size: 18px;
+        }
+        .location-card p {
+            margin: 4px 0;
+            font-size: 14px;
+            color: var(--muted);
+        }
+        .location-card p a { color: var(--text); }
+
+        .map-section { padding: 0 0 60px; }
+        #map {
+            width: 100%;
+            height: 420px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+        .red-pin {
+            width: 18px;
+            height: 18px;
+            background: #E03131;
+            border: 2px solid #fff;
+            border-radius: 50% 50% 50% 0;
+            transform: rotate(-45deg);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+        }
+
+        footer {
+            background: var(--text);
+            color: #fff;
+            padding: 30px 20px;
+        }
+        footer .wrap {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        footer p { margin: 3px 0; font-size: 13px; opacity: 0.85; }
+        footer a { color: #fff; }
+    </style>
+</head>
+<body>
+<header></header>
+
+<main>
+
+    <section class="intro-section">
+        <div class="wrap">
+            <span class="eyebrow">Локации</span>
+            <h1>Нашите локации</h1>
+            <p>Не сте сигурни која локација е најблиску до вас? Еве ги сите наши локации со работно време и контакт.</p>
+        </div>
+    </section>
+
+    <section class="locations-section">
+        <div class="wrap">
+            <div class="locations-grid">
+
+                <div class="location-card">
+                    <div class="icon-circle">🖈</div>
+                    <h3>Центар</h3>
+                    <p>Бул. Партизански Одреди 89, Скопје 1000</p>
+                    <p>☏ 070 123 456</a></p>
+                    <p>⏲ Пон - Нед: 08:00 - 22:00</p>
+                </div>
+
+                <div class="location-card">
+                    <div class="icon-circle">🖈</div>
+                    <h3>Карпош</h3>
+                    <p>бул. Партизански Одреди 64, Скопје 1000</p>
+                    <p>☏ 070 222 222</a></p>
+                    <p>⏲ Пон - Нед: 08:00 - 22:00</p>
+                </div>
+
+                <div class="location-card">
+                    <div class="icon-circle">🖈</div>
+                    <h3>Аеродром</h3>
+                    <p>Бул. Јане Сандански бр.59, Скопје 1000</p>
+                    <p>☏ 070 333 333</a></p>
+                    <p>⏲ Пон - Нед: 08:00 - 22:00</p>
+                </div>
+
+                <div class="location-card">
+                    <div class="icon-circle">🖈</div>
+                    <h3>Кисела Вода</h3>
+                    <p>Христо Татарчев 47, Скопје 1000</p>
+                    <p>☏ 070 444 444</a></p>
+                    <p>⏲ Пон - Нед: 08:00 - 22:00</p>
+                </div>
+
+                <div class="location-card">
+                    <div class="icon-circle">🖈</div>
+                    <h3>Гази Баба</h3>
+                    <p>Индустриска 25, Скопје 1000</p>
+                    <p>☏ 070 555 555</a></p>
+                    <p>⏲ Пон - Нед: 08:00 - 22:00</p>
+                </div>
+
+                <div class="location-card">
+                    <div class="icon-circle">🖈</div>
+                    <h3>Чаир</h3>
+                    <p>Ресенска 3, Скопје 1000</p>
+                    <p>☏ 070 666 666</a></p>
+                    <p>⏲ Пон - Нед: 08:00 - 22:00</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="map-section">
+        <div class="wrap">
+            <div id="map"></div>
+        </div>
+    </section>
+
+</main>
+<footer>
+    <div class="wrap">
+        <div>
+            <p>Бул. Партизански Одреди 89, Скопје 1000</p>
+            <p>© 2026 Цимет</p>
+        </div>
+        <div>
+            <a>🅾 𝐈𝐧𝐬𝐭𝐚𝐠𝐫𝐚𝐦 ꕀ ⓕ Facebook ꕀ 【ꚠ】𝗧𝗶𝗸𝗼𝗸<p>cimet.mk</p></a>
+        </div>
+    </div>
+</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+    var locations = [
+        { name: "Центар", address: "Бул. Партизански Одреди 89, Скопје 1000", lat: 42.0014769, lng: 21.4034939 },
+        { name: "Карпош", address: "бул. Партизански Одреди 64, Скопје 1000", lat: 42.0033334, lng: 21.3990134 },
+        { name: "Аеродром", address: "Бул. Јане Сандански бр.59, Скопје 1000", lat: 41.9881034, lng: 21.4678325 },
+        { name: "Кисела Вода", address: "Христо Татарчев 47, Скопје 1000", lat: 41.9768085, lng: 21.4441527 },
+        { name: "Гази Баба", address: "Индустриска 25, Скопје 1000", lat: 41.994203, lng: 21.4733251 },
+        { name: "Чаир", address: "Ресенска 3, Скопје 1000", lat: 42.0200195, lng: 21.4410511 }
+    ];
+
+    var map = L.map('map');
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    var redPin = L.divIcon({
+        className: 'red-pin',
+        iconSize: [18, 18],
+        iconAnchor: [9, 18]
+    });
+
+    var markers = [];
+    locations.forEach(function(loc) {
+        var marker = L.marker([loc.lat, loc.lng], { icon: redPin })
+            .addTo(map)
+            .bindPopup('<strong>' + loc.name + '</strong><br>' + loc.address);
+        markers.push(marker);
+    });
+
+    var group = L.featureGroup(markers);
+    map.fitBounds(group.getBounds().pad(0.2));
+</script>
+
+</body>
+</html>
