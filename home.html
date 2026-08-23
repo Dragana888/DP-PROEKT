@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Цимет</title>
+    <link rel="stylesheet" href="styleHomeDel.css">
+</head>
+<body>
+    <ul class="navbar">
+        <div id="logo">
+
+        </div>
+        <div>
+            <h3 >Ц И М Е Т</h3>
+        </div>
+        <div id="items">
+            <li>ПОЧЕТНА</li>
+            <li>ХРАНА</li>
+            <li>ПИЈАЛОЦИ</li>
+            <li>НАРАЧКА</li>
+            <li>КОНТАКТ</li>
+            <li>ЛОКАЦИИ</li>
+
+        </div>
+        
+    </ul>
+    <div id="slide">
+        <!-- <video height="800px" autoplay muted loop id="videoBack">
+            <source src="coffe.mp4" type="video/mp4">
+        </video> -->
+        <div id="overlay">
+
+        </div>
+         <div id="slideText">
+            <h1 id="CIMET">Ц И М Е Т</h1>
+            <h1 id="subtext">Кафе и пецива</h1>
+            <div id="paragraph">
+                <p>Добредојдовте во светот на слатки пецива, миризливо кафе и најдобрата атмосфера</p>
+                <p>Уживајте со пријателите и семејството </p>
+            </div>
+            
+            
+        </div>
+    </div>
+    <div id="about">
+        <div id="pastries">
+
+        </div>
+        <div id="text">
+            <h1>Нешто за нас</h1>
+            <p>Како големи љубители на кафе, пецива, десерти и се што е вкусно решивме
+                да помешаме труд, вештини, уметност и природни состојки за да ви ги пружиме 
+                нашите незаборавни специјалитети. 
+                
+            </p>
+            <p>Почуствувајте ја љубовта при секој залак!</p>
+        </div>
+       
+    </div>
+    <div id="slideshow">
+        <h1>Истакнато</h1>
+        <div id="carousel-conatiner">
+            <button onclick="moveCarousel('backward')"> &#8678; </button>
+            <div id="carousel-items">
+                <div class="carousel-item" style="visibility: hidden;"> X</div>
+
+                <div class="carousel-item " style="background-image: url('croissant.webp'); "> </div>
+                <div class="carousel-item active" style="background-image: url('logo.png');"> </div>
+                <div class="carousel-item" style="background-image: url('paper.png'); "> </div>
+                <div class="carousel-item" style="background-image: url('slikichka.jpg'); "> </div>
+                <div class="carousel-item" style="background-image: url('pastries.png'); "> </div>
+                <div class="carousel-item" style="background-image: url('background.jpg'); "> </div>
+
+            </div>
+            <button onclick="moveCarousel('forward')"> &#8680;</button>
+
+        </div>
+    </div>
+    <div id="gift">
+        <div id="kitty">
+
+        </div>
+        <div id="giftText">
+            <h1>Подарок за вас</h1>
+            <p>За да се заблагодариме на секој од нашите лојани купувачи ви даваме специјален подарок! 
+                За секоја сметка над 300 денари добивате купон. Со 5 соберени купони добивате ваучер
+                од 500 денари кој можете да го искористите во било кое време! 
+            </p>
+            
+        </div>
+        
+    </div>
+    <footer>
+        <div class="wrap">
+            <div>
+                <p>Бул. Партизански Одреди 89, Скопје 1000</p>
+                <p>© 2026 Цимет</p>
+            </div>
+            <div>
+                <a>🅾 𝐈𝐧𝐬𝐭𝐚𝐠𝐫𝐚𝐦 ꕀ ⓕ Facebook ꕀ 【ꚠ】𝗧𝗶𝗸𝗼𝗸<p>cimet.mk</p></a>
+            </div>
+        </div>
+    </footer>
+</body>
+<script>
+    let position=1
+   
+    function moveCarousel(direction) {
+        let foundActive = false
+        let nextOne=false
+        if(direction=='forward'){
+            position++;
+            if(position==6)
+                position=0
+        }
+        else if(direction=='backward'){
+            if(position==0){
+                position=6
+            }
+            position--;
+        }
+        const offset = 280*position;
+        let i=-1
+        document.querySelectorAll('.carousel-item').forEach(carouselItemElement =>{
+            carouselItemElement.classList.remove('active')
+            console.log(position)
+            console.log(i)
+            if(i==position){
+                carouselItemElement.classList.add('active')
+                console.log('yes')
+            }
+            carouselItemElement.style.transform = `translateX(-${offset}px)`;
+            i++
+        })
+    }
+</script>
+</html>
