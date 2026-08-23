@@ -9,6 +9,11 @@
   src:url("Glina\ Script\ em..otf");
 }
 
+a{
+    text-decoration:none;
+    color:#46041b;
+}
+
 .navbar {
     list-style: none;
     display: grid;
