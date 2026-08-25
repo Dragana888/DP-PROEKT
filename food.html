@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Храна</title>
+    <title>Title</title>
     <link rel="stylesheet" href="styleFood.css">
 </head>
 <body>
@@ -271,6 +271,23 @@
     </div>
 
 </section>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("reveal");
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll(".card, .menu-header").forEach((el) => {
+            observer.observe(el);
+        });
+    });
+</script>
 
 </body>
 
