@@ -94,7 +94,12 @@ body{
     border: #d39165 8px groove;
     overflow: hidden;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
+
 
 .card img {
     width: 100%;
@@ -116,6 +121,16 @@ body{
     color: #666;
     font-size: 1.1rem;
     line-height: 1.4;
+}
+
+.card.reveal {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.menu-header.reveal {
+    opacity: 1;
+    transform: translateX(0);
 }
 
 h1{
@@ -150,6 +165,9 @@ h1{
     padding-top: 50px;
     padding-right: 18px;
     /*margin-top: 70px;*/
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: opacity 2s ease, transform 0.6s ease;
 }
 
 .menu-header h1 {
