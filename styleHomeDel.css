@@ -3,6 +3,10 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+html{
+    min-width: 1142px;
+}
 @font-face {
   font-family: "Cimet";
   src:url("Glina\ Script\ em..otf");
@@ -12,7 +16,7 @@ a{
     text-decoration:none;
     color:#46041b;
 }
-
+/* 
 body::before{
     content: "";
     position: fixed;
@@ -22,11 +26,23 @@ body::before{
     background: url('background1.jpg');
     opacity: 0.3;
     background-size: 300px;
-}
+
+} */
 
 body{
-    background-color: #cda991; 
-    
+    background-blend-mode: soft-light;
+    background-color: #cda991;
+    font-family: 'Cimet';
+    background-image: url('background1.jpg');
+    background-repeat: repeat;
+    background-size: 300px;
+    background-blend-mode: soft-light;
+    background-attachment: fixed;
+}
+
+.navbar,footer, #slide{
+    width: 99vw;
+    min-width: 1142px;
 }
 
 .navbar {
@@ -41,6 +57,7 @@ body{
     font-family: 'Cimet';
     height: 90px;
     box-sizing: border-box;
+    min-width: 1142px;
 
 }
 #items{
@@ -87,6 +104,8 @@ body{
     position: relative;
     background: url('backgGif.gif');
     background-size: 100% 600px;
+    min-width: 1142px;
+
 }
 
 #overlay{
@@ -129,16 +148,20 @@ body{
     justify-content: space-around;
 
 }
-#about,#slideshow, #gift,#deliveries{
-    width: 1100px;
+#about,#slideshow, #gift{
+    width: 75vw;
+    min-width: 1142px;
+
     margin:auto;
     padding: 30px 30px;
-    background-color: #eaddc0ea;
+    background-color: #ecd5c8;
+    box-shadow: 0 50px 50px rgba(44, 24, 16, 0.5);
+    
     margin-top: 80px;
     border-radius: 20px;
-    box-shadow: 15px 15px 6px #433c33f9;
+
     margin-bottom: 80px;
-    
+    box-sizing: border-box;
 }
 #about>div{
     box-sizing: border-box;
@@ -210,8 +233,9 @@ body{
     display: inline-block;
     transform: translate(-280px);
     transition: transform 0.3s ease;
-    background-size: contain;
     background-repeat: no-repeat;
+    background-size: 300px 280px;
+    /* background-position: 50px; */
 }
 
 .carousel-item:not(.active){
@@ -243,25 +267,45 @@ button:hover{
 }
 
 #deliveries{
-    height: 75vh;
     box-sizing: border-box;
     font-family: 'Cimet';
     color: #46041b;
     padding: 40px 80px;
+    /* width: 75vw; */
+    min-width: 1142px;
+    height: 750px;
 }
-
-#deliveries>h1{
-    font-size: 80px;
-}
-
-#deliveries>p{
+#deliveries h2{
     font-size: 30px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #7a543a;
+    margin-bottom: 10px;
+    text-align: center;
+    padding-top: 30px
+}
+
+#deliveries h1{
+    font-size: 77px;
+    text-align: center;
+    padding-bottom: 40px;
+    padding-top: 10px;
+    color: #2B2B28;
+}
+
+#deliveries p{
+    width: 600px;
+    font-size: 25px;
+    margin: auto;
+    text-align: center;
+    color: #6B6A64;
 }
 
 #partners{
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     margin-top: 40px;
+    gap: 30px;
 }
 
 #partners>a{
@@ -269,6 +313,13 @@ button:hover{
     height: 250px;
     background-size: 250px 250px;
     border-radius: 20px;
+}
+
+#partners>a:hover{
+    width: 300px;
+    height: 300px;
+    background-size: 300px 300px;
+
 }
 
 #wolt{
@@ -287,10 +338,11 @@ button:hover{
     padding: 0 20px;
 }
 footer {
+    
     background: #2B2B28;
     color: #fff;
     padding: 30px 20px;
-
+   
 }
 footer .wrap {
     display: flex;
