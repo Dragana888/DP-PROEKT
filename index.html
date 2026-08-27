@@ -64,13 +64,14 @@
             <div id="carousel-items">
                 <div class="carousel-item" style="visibility: hidden;"> X</div>
 
-                <div class="carousel-item " style="background-image: url('croissant.webp'); "> </div>
-                <div class="carousel-item active" style="background-image: url('logo.png');"> </div>
-                <div class="carousel-item" style="background-image: url('paper.png'); "> </div>
-                <div class="carousel-item" style="background-image: url('slikichka.jpg'); "> </div>
-                <div class="carousel-item" style="background-image: url('pastries.png'); "> </div>
-                <div class="carousel-item" style="background-image: url('background.jpg'); "> </div>
-
+                <div class="carousel-item " style="background-image: url('imagesFood/buttercroissant.jpg'); "> </div>
+                <div class="carousel-item active" style="background-image: url('imagesFood/bananaBread.jpg');"> </div>
+                <div class="carousel-item" style="background-image: url('imagesFood/Mini-Fruit-Tarts-Feature.jpg'); "> </div>
+                <div class="carousel-item" style="background-image: url('imagesFood/loaf.jpg'); "> </div>
+                <div class="carousel-item" style="background-image: url('images-drinks/cinnamon-latte.jfif'); "> </div>
+                <div class="carousel-item" style="background-image: url('images-drinks/pistachio.jfif'); "> </div>
+                <div class="carousel-item" style="background-image: url('images-drinks/creme-brulee.jfif'); "> </div>
+                <div class="carousel-item" style="background-image: url('images-drinks/tiramisu.jfif'); "> </div>
             </div>
             <button onclick="moveCarousel('forward')"> &#8680;</button>
 
@@ -110,12 +111,12 @@
         let nextOne=false
         if(direction=='forward'){
             position++;
-            if(position==6)
+            if(position==10)
                 position=0
         }
         else if(direction=='backward'){
             if(position==0){
-                position=6
+                position=10
             }
             position--;
         }
