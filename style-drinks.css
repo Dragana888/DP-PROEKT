@@ -208,6 +208,8 @@ h1{
     height: 85px;
     object-fit: contain;
     margin-right: 20px;
+    border-radius:50% ;
+    
 }
 
 .menu-section article div {
