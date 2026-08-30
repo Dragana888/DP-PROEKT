@@ -202,6 +202,37 @@
         }
         footer p { margin: 3px 0; font-size: 13px; opacity: 0.85; }
         footer a { color: #fff; }
+
+        @media (max-width: 841px) {
+           .navbar {
+            /* flex-direction: column;
+            align-items: center;
+            padding: 15px 10px; */
+            display: block;
+        }
+    
+        #items {
+            justify-content: center;
+            width: 100%;
+            margin-top: 15px;
+        }
+    
+    
+      
+    }
+    
+    @media (max-width: 480px) {
+        #items {
+            flex-direction: column; 
+            gap: 5px;
+        }
+    
+        .navbar a {
+            width: 100%; 
+        }
+        
+     
+    }
     </style>
 </head>
 <body>
