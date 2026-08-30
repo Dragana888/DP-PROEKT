@@ -65,9 +65,9 @@
         <div id="carousel-conatiner">
             <button onclick="moveCarousel('backward')"> &#8678; </button>
             <div id="carousel-items">
-                <div class="carousel-item" style="visibility: hidden;"> X</div>
+                <!-- <div class="carousel-item" style="visibility: hidden;"> X</div> -->
 
-                <div class="carousel-item " style="background-image: url('imagesFood/buttercroissant.jpg'); "> </div>
+                <div class="carousel-item " style="background-image: url('imagesFood/buttercroissant.jpg'); margin-left: 290px; "> </div>
                 <div class="carousel-item active" style="background-image: url('imagesFood/bananaBread.jpg');"> </div>
                 <div class="carousel-item" style="background-image: url('imagesFood/Mini-Fruit-Tarts-Feature.jpg'); "> </div>
                 <div class="carousel-item" style="background-image: url('imagesFood/loaf.jpg'); "> </div>
@@ -108,10 +108,12 @@
 </body>
 <script>
     let position=1
-   
+    if(window.innerWidth<1040){
+        document.querySelectorAll('.carousel-item.active')[0].classList.remove('active')
+        document.querySelectorAll('.carousel-item')[0].classList.add('active')
+        position=0
+    }
     function moveCarousel(direction) {
-        let foundActive = false
-        let nextOne=false
         if(direction=='forward'){
             position++;
             if(position==8)
@@ -123,34 +125,45 @@
             }
             position--;
         }
-        const offset = 300*position;
-        let i=-1
+        let offset = 300*position;
+        if(window.innerWidth<1040){
+            if(direction=='forward')
+                offset+=300
+            else
+                offset-=300
+        }
+        let i=0
         document.querySelectorAll('.carousel-item').forEach(carouselItemElement =>{
             carouselItemElement.classList.remove('active')
-            console.log(position)
-            console.log(i)
+            // console.log(position)
+            // console.log(i)
             if(i==position){
                 carouselItemElement.classList.add('active')
-                console.log('yes')
+                // console.log('yes')
             }
             carouselItemElement.style.transform = `translateX(-${offset}px)`;
             i++
         })
     }
-    function checkSlideActive(){
+    
+    window.addEventListener('resize', function(){
+        
+        let pom =position
         if(window.innerWidth<1040){
-            document.querySelectorAll('.carousel-item.active').forEach(carouselItemElement =>{
-                carouselItemElement.classList.remove('active')
-            })
-            document.querySelectorAll('.carousel-item')[1].classList.add('active')   
+            offset=300*(pom+1)
         }
         else{
-            document.querySelectorAll('.carousel-item.active').forEach(carouselItemElement =>{
-                carouselItemElement.classList.remove('active')
-            })
-            document.querySelectorAll('.carousel-item')[2].classList.add('active')   
+            offset=300*(pom)
         }
-    }
-    setInterval(() => checkSlideActive(), 100)
+        document.querySelectorAll('.carousel-item').forEach(carouselItemElement =>{
+           
+            // console.log(position)
+            // console.log(i)
+            
+            carouselItemElement.style.transform = `translateX(-${offset}px)`;
+            
+        })
+    });
+
 </script>
 </html>
