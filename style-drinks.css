@@ -19,6 +19,11 @@ body{
     background-attachment: fixed;
 }
 
+a{
+    text-decoration:none;
+    color:#46041b;
+}
+
 .navbar {
     width: 99vw;
     list-style: none;
