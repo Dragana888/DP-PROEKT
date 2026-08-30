@@ -15,25 +15,30 @@ a{
 }
 
 .navbar {
+width: 99vw;
     list-style: none;
     display: grid;
-    grid-template-columns: 1fr 110px 10fr 2fr;
+    grid-template-columns: 240px 7fr 1fr;
+    gap: 60px;
     padding-top: 10px;
     background-color: #d39165;
     color: #46041b;
     font-size: 20px;
     justify-content: center;
     font-family: 'Cimet';
-    height: 90px;
+    min-height: 90px;
     box-sizing: border-box;
+    /* min-width: 1142px; */
 
 }
 #items{
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
-    margin-left: 100px;
+    gap:10px;
+    align-items: center;
 }
-.navbar li{
+.navbar a{
     /* padding: 10px 5px; */
     font-size: 20px;
     cursor: pointer;
@@ -42,18 +47,27 @@ a{
     padding: 12px;
     border-radius: 5px;
     margin-top: 6px;
-    width: 140px;
+   
     text-align: center;
     font-weight: bold;
 }
 
 .navbar h3{
-    padding-top: 18px;
+    /* padding-top: 18px;
+    display: inline-block;
+    vertical-align: top; */
+    margin: 0;
+    white-space: nowrap;
 }
 
-.navbar li:hover{
+.navbar a:hover{
     background-color: #7a543a;
     color: white;
+}
+.navbar > div:first-child {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #logo{
@@ -63,4 +77,35 @@ a{
     background-size: contain;
     margin-left: 40px;
     /* margin-top: 10px; */
+}
+
+@media (max-width: 841px) {
+       .navbar {
+        /* flex-direction: column;
+        align-items: center;
+        padding: 15px 10px; */
+        display: block;
+    }
+
+    #items {
+        justify-content: center;
+        width: 100%;
+        margin-top: 15px;
+    }
+
+
+  
+}
+
+@media (max-width: 480px) {
+    #items {
+        flex-direction: column; 
+        gap: 5px;
+    }
+
+    .navbar a {
+        width: 100%; 
+    }
+    
+ 
 }
