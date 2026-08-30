@@ -18,6 +18,70 @@
         }
 
         * { box-sizing: border-box; }
+        .navbar {
+            width: 99vw;
+            list-style: none;
+            display: grid;
+            grid-template-columns: 240px 7fr 1fr;
+            gap: 60px;
+            padding-top: 10px;
+            background-color: #d39165;
+            color: #46041b;
+            font-size: 20px;
+            justify-content: center;
+            font-family: 'Cimet';
+            min-height: 90px;
+            box-sizing: border-box;
+            /* min-width: 1142px; */
+        
+        }
+        #items{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap:10px;
+            align-items: center;
+        }
+        .navbar a{
+            /* padding: 10px 5px; */
+            font-size: 20px;
+            cursor: pointer;
+            height: 50px;
+            box-sizing: border-box;
+            padding: 12px;
+            border-radius: 5px;
+            margin-top: 6px;
+           
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .navbar h3{
+            /* padding-top: 18px;
+            display: inline-block;
+            vertical-align: top; */
+            margin: 0;
+            white-space: nowrap;
+        }
+        
+        .navbar a:hover{
+            background-color: #7a543a;
+            color: white;
+        }
+        .navbar > div:first-child {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        #logo{
+            background-image: url('logo.png');
+            width: 70px;
+            height: 70px;
+            background-size: contain;
+            margin-left: 40px;
+            /* margin-top: 10px; */
+        }
 
         body {
             margin: 0;
