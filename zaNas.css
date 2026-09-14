@@ -1,0 +1,350 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: "Cimet";
+    src:url("Glina\ Script\ em..otf");
+}
+
+a{
+    text-decoration:none;
+    color:#46041b;
+}
+
+body{
+    background-blend-mode: soft-light;
+    background-color: #cda991;
+    font-family: 'Cimet';
+    background-image: url('background1.jpg');
+    background-repeat: repeat;
+    background-size: 300px;
+    background-blend-mode: soft-light;
+    background-attachment: fixed;
+}
+
+.navbar,footer, #slide{
+    width: 99vw;
+
+}
+
+.navbar {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 240px 7fr 1fr;
+    gap: 60px;
+    padding-top: 10px;
+    background-color: #d39165;
+    color: #46041b;
+    font-size: 20px;
+    justify-content: center;
+    font-family: 'Cimet';
+    min-height: 90px;
+    box-sizing: border-box;
+
+
+}
+#items{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap:10px;
+    align-items: center;
+}
+.navbar a{
+
+    font-size: 20px;
+    cursor: pointer;
+    height: 50px;
+    box-sizing: border-box;
+    padding: 12px;
+    border-radius: 5px;
+    margin-top: 6px;
+
+    text-align: center;
+    font-weight: bold;
+}
+
+.navbar h3{
+
+    margin: 0;
+    white-space: nowrap;
+}
+
+.navbar a:hover{
+    background-color: #7a543a;
+    color: white;
+}
+.navbar > div:first-child {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#logo{
+    background-image: url('logo.png');
+    width: 70px;
+    height: 70px;
+    background-size: contain;
+    margin-left: 40px;
+
+}
+
+
+
+.about-intro {
+    width: 85%;
+    max-width: 1000px;
+    margin: 50px auto 40px auto;
+    background-color: #ecd5c8;
+    padding: 40px 50px;
+    border-radius: 20px;
+    border: #d39165 4px solid;
+    box-shadow: 0 15px 35px rgba(44, 24, 16, 0.2);
+    text-align: center;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.about-intro.reveal {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.about-intro h1 {
+    font-size: 50px;
+    color: #46041b;
+    margin-bottom: 15px;
+    text-decoration: underline;
+}
+
+.about-intro p {
+    font-size: 24px;
+    color: #4a2810;
+    line-height: 1.6;
+}
+
+.team-section {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto 80px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.team-card {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: #f6eded;
+    border: #d39165 4px solid;
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 10px 25px rgba(44, 24, 16, 0.15);
+    gap: 30px;
+    opacity: 0;
+    transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.team-card:nth-child(odd) {
+    flex-direction: row;
+}
+
+.team-card:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.team-card img {
+    width: 220px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 15px;
+    border: #d39165 3px solid;
+    flex-shrink: 0;
+}
+
+.team-info {
+    flex: 1;
+}
+
+.team-info h2 {
+    font-size: 38px;
+    color: #46041b;
+    margin-bottom: 5px;
+}
+
+.team-info h4 {
+    font-size: 24px;
+    color: #7a543a;
+    margin-bottom: 15px;
+}
+
+.team-info p {
+    font-size: 20px;
+    color: #575a57;
+    line-height: 1.5;
+}
+
+.slide-from-left {
+    transform: translateX(-80px);
+}
+
+.slide-from-right {
+    transform: translateX(80px);
+}
+
+.team-card.reveal {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+@media (max-width: 900px) {
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    #items {
+        justify-content: center;
+    }
+
+    .team-card,
+    .team-card:nth-child(even) {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-intro h1 { font-size: 36px; }
+    .about-intro p { font-size: 18px; }
+    .team-info h2 { font-size: 30px; }
+    .team-info h4 { font-size: 20px; }
+    .team-info p { font-size: 17px; }
+}
+
+.wrap {
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+footer {
+    background: #2B2B28;
+    color: #fff;
+    padding: 30px 20px;
+    font-family: "Times New Roman";
+}
+
+footer .wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+footer p { margin: 3px 0; font-size: 13px; opacity: 0.85; }
+footer a { color: #fff; text-decoration: none; }
+
+@media (max-width:1040px){
+    #about,#gift{
+        display: block;
+    }
+    #about>div:nth-child(2){
+        height: auto;
+    }
+    #giftText, #text{
+        width: fit-content;
+    }
+    #about>div:first-child{
+        margin: auto;
+    }
+}
+
+@media (max-width: 841px) {
+    #slideText{
+        margin-left: 10px;
+    }
+    #CIMET{
+        font-size: 18vw;
+    }
+    #subtext{
+        font-size: 12vw;
+    }
+
+    #paragraph{
+        font-size: 4vw;
+    }
+    .navbar {
+        /* flex-direction: column;
+        align-items: center;
+        padding: 15px 10px; */
+        display: block;
+    }
+
+    #items {
+        justify-content: center;
+        width: 100%;
+        margin-top: 15px;
+    }
+
+    #partners{
+        display: block;
+        padding-bottom: 10px;
+    }
+    #partners>a{
+        display: block;
+        margin: auto;
+        margin-bottom: 20px;
+
+    }
+
+    /* .navbar a {
+        font-size: 16px;
+        padding: 8px 10px;
+    } */
+}
+
+@media (max-width: 480px) {
+    #items {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .navbar a {
+        width: 100%;
+    }
+
+    #slideText{
+        padding-top: 200px;
+    }
+    #deliveries h1 {
+        font-size: 55px;
+
+    }
+
+    #deliveries p {
+        font-size: 20px;
+        text-align: center;
+        width: fit-content;
+    }
+
+    #partners>a {
+        width: 150px;
+        height: 150px;
+        background-size: 150px 150px;
+
+    }
+
+    #partners>a:hover{
+        width: 200px;
+        height: 200px;
+        background-size: 200px 200px;
+
+    }
+
+
+}
