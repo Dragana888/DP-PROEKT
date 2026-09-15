@@ -1,1 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cimet</title>
+    <link rel="stylesheet" href="styleHomeDel.css">
+</head>
+<body>
+    <div class="navbar">
+        <div>
+            <div id="logo">
 
+            </div>
+            
+            <h3 >C I M E T</h3>
+            
+        </div>
+        
+        <div id="items">
+            <a href="index.html">HOME</a>
+            <a href="food.html">FOOD</a> 
+            <a href="drinks.html">DRINKS</a> 
+            <a href="delivery.html">ORDER</a>
+            <a href="kontakt.html">CONTACT</a>
+            <a href="lokacija.html">LOCATIONS</a>
+            <a href="zaNas.html">ABOUT US</a>
+        </div>
+        
+    </div>
+    <div id="slide">
+        <!-- <video height="800px" autoplay muted loop id="videoBack">
+            <source src="coffe.mp4" type="video/mp4">
+        </video> -->
+        <div id="overlay">
+
+        </div>
+         <div id="slideText">
+            <h1 id="CIMET">C I M E T</h1>
+            <h1 id="subtext">Coffee and pastries</h1>
+            <div id="paragraph">
+                <p>Welcome to the world of sweet pastries, aromatic coffee and the best atmosphere</p>
+                <p>Enjoy with your friends and family</p>
+            </div>
+            
+            
+        </div>
+    </div>
+    <div id="about">
+        <div id="pastries">
+
+        </div>
+        <div id="text">
+            <h1>A little about us</h1>
+            <p>As big lovers of coffee, pastries, desserts and everything delicious we
+                decided to mix hard work, skills, art and natural ingredients so we can
+                offer you our unforgettable specialties.
+            </p>
+            <p>Feel the love with every bite!</p>
+        </div>
+       
+    </div>
+    <div id="slideshow">
+        <h1>Highlighted</h1>
+        <div id="carousel-conatiner">
+            <button onclick="moveCarousel('backward')"> &#8678; </button>
+            <div id="carousel-items">
+                <!-- <div class="carousel-item" style="visibility: hidden;"> X</div> -->
+
+                <div class="carousel-item " style="background-image: url('imagesFood/buttercroissant.jpg'); margin-left: 290px; "> </div>
+                <div class="carousel-item active" style="background-image: url('imagesFood/bananaBread.jpg');"> </div>
+                <div class="carousel-item" style="background-image: url('imagesFood/Mini-Fruit-Tarts-Feature.jpg'); "> </div>
+                <div class="carousel-item" style="background-image: url('imagesFood/loaf.jpg'); "> </div>
+                <div class="carousel-item" style="background-image: url('images-drinks/cinnamon-latte.jfif'); "> </div>
+                <div class="carousel-item" style="background-image: url('images-drinks/pistachio.jfif'); "> </div>
+                <div class="carousel-item" style="background-image: url('images-drinks/creme-brulee.jfif'); "> </div>
+                <div class="carousel-item" style="background-image: url('images-drinks/tiramisu.jfif'); "> </div>
+            </div>
+            <button onclick="moveCarousel('forward')"> &#8680;</button>
+
+        </div>
+    </div>
+    <div id="gift">
+        <div id="kitty">
+
+        </div>
+        <div id="giftText">
+            <h1>A gift for you</h1>
+            <p>To thank every one of our loyal costumers we give you a special gift!
+                For every purchase above 300 denars you get a coupon. With 5 coupons you get a voucher
+                of 500 denars which you can use at any time!
+            </p>
+            
+        </div>
+        
+    </div>
+    <div id="news">
+        <h1>News</h1>
+        <div id="news-container">
+            <div class="news-item">
+                <div class="news-image" style="background-image: url('imagesFood/bananaBread.jpg');"></div>
+                <div class="news-content">
+                    <span class="news-date">01.09.2026</span>
+                    <h3>New in the menu</h3>
+                    <p>Ask for our new banana bread cake, freshly baked every morning.</p>
+                    <p>Students get 1+1 free</p>
+                </div>
+            </div>
+
+            <div class="news-item">
+                <div class="news-image" style="background-image: url('images-drinks/pistachio.jfif');"></div>
+                <div class="news-content">
+                    <span class="news-date">20.08.2026</span>
+                    <h3>Autumn special</h3>
+                    <p>New pistachio latte just for this season - hot and tasty combination.</p>
+                </div>
+            </div>
+
+            <div class="news-item">
+                <div class="news-image" style="background-image: url('images-drinks/cinnamon-latte.jfif');"></div>
+                <div class="news-content">
+                    <span class="news-date">10.08.2026</span>
+                    <h3>Working hours for the weekend</h3>
+                    <p>Just this month, on Sunday we work from 08:00 to 18:00.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="wrap">
+            <div>
+                <p>Bul. Partizanski Odredi 89, Skopje 1000</p>
+                <p>© 2026 Cimet</p>
+            </div>
+            <div>
+                <a>🅾 𝐈𝐧𝐬𝐭𝐚𝐠𝐫𝐚𝐦 ꕀ ⓕ Facebook ꕀ 【ꚠ】𝗧𝗶𝗸𝗼𝗸<p>cimet.mk</p></a>
+            </div>
+        </div>
+    </footer>
+</body>
+<script>
+    let position=1
+    if(window.innerWidth<1040){
+        document.querySelectorAll('.carousel-item.active')[0].classList.remove('active')
+        document.querySelectorAll('.carousel-item')[0].classList.add('active')
+        position=0
+    }
+    function moveCarousel(direction) {
+        if(direction=='forward'){
+            position++;
+            if(position==8)
+                position=0
+        }
+        else if(direction=='backward'){
+            if(position==0){
+                position=8
+            }
+            position--;
+        }
+        let offset = 300*position;
+        if(window.innerWidth<1040){
+            if(direction=='forward')
+                offset+=300
+            else
+                offset-=300
+        }
+        let i=0
+        document.querySelectorAll('.carousel-item').forEach(carouselItemElement =>{
+            carouselItemElement.classList.remove('active')
+            // console.log(position)
+            // console.log(i)
+            if(i==position){
+                carouselItemElement.classList.add('active')
+                // console.log('yes')
+            }
+            carouselItemElement.style.transform = `translateX(-${offset}px)`;
+            i++
+        })
+    }
+    
+    window.addEventListener('resize', function(){
+        
+        let pom =position
+        if(window.innerWidth<1040){
+            offset=300*(pom+1)
+        }
+        else{
+            offset=300*(pom)
+        }
+        document.querySelectorAll('.carousel-item').forEach(carouselItemElement =>{
+           
+            // console.log(position)
+            // console.log(i)
+            
+            carouselItemElement.style.transform = `translateX(-${offset}px)`;
+            
+        })
+    });
+
+</script>
+</html>
