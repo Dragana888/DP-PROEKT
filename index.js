@@ -1,8 +1,4 @@
-document.cookie = "lang=mk; path=/; Secure";
-document.cookie = "delivery=none; path=/; Secure";
-document.cookie = "name=none; path=/; Secure";
-document.cookie = "email=none; path=/; Secure";
-document.cookie = "tel=none; path=/; Secure";
+
 
 
 function getCookie(cookieName) {
