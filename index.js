@@ -47,4 +47,4 @@ document.addEventListener('DOMContentLoaded', () => {
     document.cookie = `user_lang=${currentLang}; max-age=${365 * 24 * 60 * 60}; path=/; `;
 });
 
-
+console.log(document.cookie)
