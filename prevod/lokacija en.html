@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Locations</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        :root{
+            --bg: #ECD5C8;
+            --surface: #FFFFFF;
+            --text: #2B2B28;
+            --muted: #6B6A64;
+            --accent: #3F5D4F;
+            --accent-soft: #E9EFE9;
+            --border: #DDD8CC;
+        }
+
+        * { box-sizing: border-box; }
+        .navbar {
+            width: 99vw;
+            list-style: none;
+            display: grid;
+            grid-template-columns: 240px 7fr 1fr;
+            gap: 60px;
+            padding-top: 10px;
+            background-color: #d39165;
+            color: #46041b;
+            font-size: 20px;
+            justify-content: center;
+            font-family: 'Cimet';
+            min-height: 90px;
+            box-sizing: border-box;
+            /* min-width: 1142px; */
+
+        }
+        #items{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap:10px;
+            align-items: center;
+        }
+        .navbar a{
+            /* padding: 10px 5px; */
+            font-size: 20px;
+            cursor: pointer;
+            height: 50px;
+            box-sizing: border-box;
+            padding: 12px;
+            border-radius: 5px;
+            margin-top: 6px;
+
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .navbar h3{
+            /* padding-top: 18px;
+            display: inline-block;
+            vertical-align: top; */
+            margin: 0;
+            white-space: nowrap;
+        }
+
+        .navbar a:hover{
+            background-color: #7a543a;
+            color: white;
+        }
+        .navbar > div:first-child {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #logo{
+            background-image: url('logo.png');
+            width: 70px;
+            height: 70px;
+            background-size: contain;
+            margin-left: 40px;
+            /* margin-top: 10px; */
+        }
+
+        body {
+            margin: 0;
+            background-image: url('background1.jpg');
+            background-color: #cda991;
+            font-family: 'Cimet';
+            color: var(--text);
+            background-repeat: repeat;
+            background-size: 300px;
+            background-blend-mode: soft-light;
+            background-attachment: fixed;
+            line-height: 1.6;
+        }
+
+
+        .wrap {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            padding: 20px;
+            border-bottom: 1px solid var(--border);
+        }
+        .intro-section {
+            text-align: center;
+            padding: 30px 0 20px;
+        }
+        .eyebrow {
+            display: inline-block;
+            font-size: 30px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #7a543a;
+            margin-bottom: 10px;
+        }
+        .intro-section h1 {
+            font-size: 77px;
+            margin: 0 0 10px;
+        }
+        .intro-section p {
+            color: var(--muted);
+            max-width: 600px;
+            font-size: 25px;
+            margin: 0 auto;
+        }
+        @media (max-width: 600px) {
+            .intro-section h1 { font-size: 26px; }
+        }
+
+        .locations-section { padding: 40px 0 60px; }
+        .locations-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .location-card {
+            background: #cda991;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            padding: 25px;
+            width: 280px;
+            box-shadow: 10px 10px 10px rgba(44, 24, 16, 0.5);
+        }
+        .location-card .icon-circle {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: var(--accent-soft);
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 12px;
+        }
+        .location-card h3 {
+            margin: 0 0 10px;
+            font-size: 30px;
+        }
+        .location-card p {
+            margin: 4px 0;
+            font-size: 15px;
+            color: saddlebrown;
+        }
+        .location-card p a { color: var(--text); }
+
+        .map-section { padding: 0 0 60px; }
+        #map {
+            width: 100%;
+            height: 420px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+        .red-pin {
+            width: 18px;
+            height: 18px;
+            background: #E03131;
+            border: 2px solid #fff;
+            border-radius: 50% 50% 50% 0;
+            transform: rotate(-45deg);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+        }
+
+        footer {
+            background: var(--text);
+            color: #fff;
+            padding: 30px 20px;
+        }
+        footer .wrap {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        footer p { margin: 3px 0; font-size: 13px; opacity: 0.85; }
+        footer a { color: #fff; }
+
+        @media (max-width: 841px) {
+            .navbar {
+                /* flex-direction: column;
+                align-items: center;
+                padding: 15px 10px; */
+                display: block;
+            }
+
+            #items {
+                justify-content: center;
+                width: 100%;
+                margin-top: 15px;
+            }
+
+
+
+        }
+
+        @media (max-width: 480px) {
+            #items {
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .navbar a {
+                width: 100%;
+            }
+
+
+        }
+
+        /* ===== LANGUAGE SWITCHER (EN / MK) ===== */
+        #lang-switch {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .navbar #lang-switch a {
+            height: auto;
+            margin-top: 0;
+            padding: 6px 12px;
+            font-size: 18px;
+            line-height: 1;
+            border: 2px solid #7a543a;
+            border-radius: 5px;
+        }
+        .navbar #lang-switch a.active {
+            background-color: #7a543a;
+            color: #fff;
+        }
+        @media (max-width: 841px) {
+            #lang-switch {
+                margin-top: 12px;
+                padding-bottom: 10px;
+            }
+        }
+        @media (max-width: 480px) {
+            .navbar #lang-switch a { width: auto; }
+        }
+    </style>
+</head>
+<body>
+<div class="navbar">
+    <div>
+        <div id="logo">
+
+        </div>
+
+        <h3>C I M E T</h3>
+
+    </div>
+
+    <div id="items">
+        <a href="index.html">HOME</a>
+        <a href="food.html">FOOD</a>
+        <a href="drinks.html">DRINKS</a>
+        <a href="delivery.html">ORDER</a>
+        <a href="kontakt-en.html">CONTACT</a>
+        <a href="lokacija-en.html">LOCATIONS</a>
+        <a href="zaNas.html">ABOUT US</a>
+    </div>
+
+    <div id="lang-switch">
+        <a href="lokacija-en.html" class="active">EN</a>
+        <a href="lokacija.html">MK</a>
+    </div>
+
+</div>
+
+<header></header>
+
+<main>
+
+    <section class="intro-section">
+        <div class="wrap">
+            <span class="eyebrow">Locations</span>
+            <h1>Our locations</h1>
+            <p>Not sure which one is closest to you? Here are all of our locations, with opening hours and phone numbers.</p>
+        </div>
+    </section>
+
+    <section class="locations-section">
+        <div class="wrap">
+            <div class="locations-grid">
+
+                <div class="location-card">
+                    <div class="icon-circle">🖈</div>
+                    <h3>Centar</h3>
+                    <p>Bul. Partizanski Odredi 89, Skopje 1000</p>
+                    <p>☏ 070 123 456</p>
+                    <p>⏲ Mon – Sun: 08:00 – 22:00</p>
+                </div>
+
+                <div class="location-card">
+                    <div class="icon-circle">🖈</div>
+                    <h3>Karposh</h3>
+                    <p>Bul. Partizanski Odredi 64, Skopje 1000</p>
+                    <p>☏ 070 222 222</p>
+                    <p>⏲ Mon – Sun: 08:00 – 22:00</p>
+                </div>
+
+                <div class="location-card">
+                    <div class="icon-circle">🖈</div>
+                    <h3>Aerodrom</h3>
+                    <p>Bul. Jane Sandanski 59, Skopje 1000</p>
+                    <p>☏ 070 333 333</p>
+                    <p>⏲ Mon – Sun: 08:00 – 22:00</p>
+                </div>
+
+                <div class="location-card">
+                    <div class="icon-circle">🖈</div>
+                    <h3>Kisela Voda</h3>
+                    <p>Hristo Tatarchev 47, Skopje 1000</p>
+                    <p>☏ 070 444 444</p>
+                    <p>⏲ Mon – Sun: 08:00 – 22:00</p>
+                </div>
+
+                <div class="location-card">
+                    <div class="icon-circle">🖈</div>
+                    <h3>Gazi Baba</h3>
+                    <p>Industriska 25, Skopje 1000</p>
+                    <p>☏ 070 555 555</p>
+                    <p>⏲ Mon – Sun: 08:00 – 22:00</p>
+                </div>
+
+                <div class="location-card">
+                    <div class="icon-circle">🖈</div>
+                    <h3>Chair</h3>
+                    <p>Resenska 3, Skopje 1000</p>
+                    <p>☏ 070 666 666</p>
+                    <p>⏲ Mon – Sun: 08:00 – 22:00</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="map-section">
+        <div class="wrap">
+            <div id="map"></div>
+        </div>
+    </section>
+
+</main>
+<footer>
+    <div class="wrap">
+        <div>
+            <p>Bul. Partizanski Odredi 89, Skopje 1000</p>
+            <p>© 2026 Cimet</p>
+        </div>
+        <div>
+            <a>🅾 𝐈𝐧𝐬𝐭𝐚𝐠𝐫𝐚𝐦 ꕀ ⓕ Facebook ꕀ 【ꚠ】𝗧𝗶𝗸𝗼𝗸<p>cimet.mk</p></a>
+        </div>
+    </div>
+</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+    var locations = [
+        { name: "Centar", address: "Bul. Partizanski Odredi 89, Skopje 1000", lat: 42.0014769, lng: 21.4034939 },
+        { name: "Karposh", address: "Bul. Partizanski Odredi 64, Skopje 1000", lat: 42.0033334, lng: 21.3990134 },
+        { name: "Aerodrom", address: "Bul. Jane Sandanski 59, Skopje 1000", lat: 41.9881034, lng: 21.4678325 },
+        { name: "Kisela Voda", address: "Hristo Tatarchev 47, Skopje 1000", lat: 41.9768085, lng: 21.4441527 },
+        { name: "Gazi Baba", address: "Industriska 25, Skopje 1000", lat: 41.994203, lng: 21.4733251 },
+        { name: "Chair", address: "Resenska 3, Skopje 1000", lat: 42.0200195, lng: 21.4410511 }
+    ];
+
+    var map = L.map('map');
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    var redPin = L.divIcon({
+        className: 'red-pin',
+        iconSize: [18, 18],
+        iconAnchor: [9, 18]
+    });
+
+    var markers = [];
+    locations.forEach(function(loc) {
+        var marker = L.marker([loc.lat, loc.lng], { icon: redPin })
+            .addTo(map)
+            .bindPopup('<strong>' + loc.name + '</strong><br>' + loc.address);
+        markers.push(marker);
+    });
+
+    var group = L.featureGroup(markers);
+    map.fitBounds(group.getBounds().pad(0.2));
+</script>
+
+</body>
+</html>

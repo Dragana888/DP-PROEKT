@@ -1,0 +1,461 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css">
+    <title>Contact — Cimet</title>
+
+    <style>
+        :root{
+            --bg: #ECD5C8;
+            --surface: #FFFFFF;
+            --text: #2B2B28;
+            --muted: #6B6A64;
+            --accent: #3F5D4F;
+            --accent-soft: #E9EFE9;
+            --border: #DDD8CC;
+        }
+
+        * { box-sizing: border-box; }
+        .navbar {
+            width: 99vw;
+            list-style: none;
+            display: grid;
+            grid-template-columns: 240px 7fr 1fr;
+            gap: 60px;
+            padding-top: 10px;
+            background-color: #d39165;
+            color: #46041b;
+            font-size: 20px;
+            justify-content: center;
+            font-family: 'Cimet';
+            min-height: 90px;
+            box-sizing: border-box;
+            /* min-width: 1142px; */
+
+        }
+        #items{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap:10px;
+            align-items: center;
+        }
+        .navbar a{
+            /* padding: 10px 5px; */
+            font-size: 20px;
+            cursor: pointer;
+            height: 50px;
+            box-sizing: border-box;
+            padding: 12px;
+            border-radius: 5px;
+            margin-top: 6px;
+
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .navbar h3{
+            /* padding-top: 18px;
+            display: inline-block;
+            vertical-align: top; */
+            margin: 0;
+            white-space: nowrap;
+        }
+
+        .navbar a:hover{
+            background-color: #7a543a;
+            color: white;
+        }
+        .navbar > div:first-child {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #logo{
+            background-image: url('logo.png');
+            width: 70px;
+            height: 70px;
+            background-size: contain;
+            margin-left: 40px;
+            /* margin-top: 10px; */
+        }
+
+        body {
+            margin: 0;
+            background: url('background1.jpg');
+            background-color: #cda991;
+            font-family: 'Cimet';
+            color: #46041b;
+            background-repeat: repeat;
+            background-size: 300px;
+            background-blend-mode: soft-light;
+            background-attachment: fixed;
+            line-height: 1.6;
+        }
+
+
+        .wrap {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            padding: 20px;
+            border-bottom: 1px solid var(--border);
+        }
+        .intro-section {
+            text-align: center;
+            padding: 30px 0 20px;
+        }
+        .eyebrow {
+            display: inline-block;
+            font-size: 30px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #7a543a;
+            margin-bottom: 10px;
+        }
+        .intro-section h1 {
+            font-size: 77px;
+            margin: 0 0 10px;
+        }
+        .intro-section p {
+            color: var(--muted);
+            max-width: 600px;
+            font-size: 25px;
+            margin: 0 auto;
+        }
+        @media (max-width: 600px) {
+            .intro-section h1 { font-size: 26px; }
+        }
+
+        .info-section { padding: 40px 0; }
+        .info-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .info-card {
+            background: #cda991;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            padding: 25px 20px;
+            text-align: center;
+            width: 220px;
+            box-shadow: 10px 10px 10px rgba(44, 24, 16, 0.5);
+        }
+        .info-card .icon-circle {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: var(--accent-soft);
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px;
+        }
+        .info-card strong {
+            display: block;
+            font-size: 15px;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            color: saddlebrown;
+            margin-bottom: 6px;
+        }
+        .info-card p { margin: 2px 0; font-size: 15px; }
+        .info-card a { color: var(--text);}
+
+        .form-section { padding: 20px 0 60px; }
+        .form-card {
+            max-width: 600px;
+            margin: 0 auto;
+            background: lavenderblush;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 30px;
+        }
+        .form-card h2 { text-align: center; margin-top: 0; }
+        .form-card > p { text-align: center; color: var(--muted); margin-bottom: 25px; }
+
+        .field { margin-bottom: 18px; }
+        .field label {
+            display: block;
+            font-size: 21px;
+            font-weight: bold;
+            color: var(--muted);
+            margin-bottom: 6px;
+        }
+
+        .input-icon {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 0 12px;
+            background: #fff;
+        }
+        .input-icon.top { align-items: flex-start; padding-top: 10px; }
+        .input-icon .icon { font-size: 18px; }
+        .input-icon input,
+        .input-icon textarea {
+            border: none;
+            outline: none;
+            flex: 1;
+            padding: 10px 0;
+            font-size: 18px;
+            font-family: inherit;
+            background: transparent;
+        }
+        .input-icon textarea { min-height: 120px; resize: vertical; }
+        .input-icon:focus-within { border-color: var(--accent); }
+
+        button[type="submit"] {
+            width: 100%;
+            background: var(--accent);
+            color: #fff;
+            border: none;
+            padding: 14px;
+            font-size: 15px;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        button[type="submit"]:hover { opacity: 0.9; }
+
+        .form-note {
+            font-size: 13px;
+            color: var(--muted);
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        #form-success {
+            display: none;
+            background: var(--accent-soft);
+            color: var(--accent);
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        footer {
+            background: var(--text);
+            color: #fff;
+            padding: 30px 20px;
+        }
+        footer .wrap {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        footer p { margin: 3px 0; font-size: 13px; opacity: 0.85; }
+        footer a { color: #fff; }
+        @media (max-width: 841px) {
+            .navbar {
+                /* flex-direction: column;
+                align-items: center;
+                padding: 15px 10px; */
+                display: block;
+            }
+
+            #items {
+                justify-content: center;
+                width: 100%;
+                margin-top: 15px;
+            }
+
+
+
+        }
+
+        @media (max-width: 480px) {
+            #items {
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .navbar a {
+                width: 100%;
+            }
+
+
+        }
+
+        /* ===== LANGUAGE SWITCHER (EN / MK) ===== */
+        #lang-switch {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .navbar #lang-switch a {
+            height: auto;
+            margin-top: 0;
+            padding: 6px 12px;
+            font-size: 18px;
+            line-height: 1;
+            border: 2px solid #7a543a;
+            border-radius: 5px;
+        }
+        .navbar #lang-switch a.active {
+            background-color: #7a543a;
+            color: #fff;
+        }
+        @media (max-width: 841px) {
+            #lang-switch {
+                margin-top: 12px;
+                padding-bottom: 10px;
+            }
+        }
+        @media (max-width: 480px) {
+            .navbar #lang-switch a { width: auto; }
+        }
+    </style>
+</head>
+<body>
+<div class="navbar">
+    <div>
+        <div id="logo">
+
+        </div>
+
+        <h3>C I M E T</h3>
+
+    </div>
+
+    <div id="items">
+        <a href="index.html">HOME</a>
+        <a href="food.html">FOOD</a>
+        <a href="drinks.html">DRINKS</a>
+        <a href="delivery.html">ORDER</a>
+        <a href="kontakt-en.html">CONTACT</a>
+        <a href="lokacija-en.html">LOCATIONS</a>
+        <a href="zaNas.html">ABOUT US</a>
+    </div>
+
+    <div id="lang-switch">
+        <a href="kontakt-en.html" class="active">EN</a>
+        <a href="kontakt.html">MK</a>
+    </div>
+
+</div>
+
+<header></header>
+
+<main>
+
+    <section class="intro-section">
+        <div class="wrap">
+            <span class="eyebrow">Contact</span>
+            <h1>Contact us</h1>
+            <p>For any questions, suggestions or remarks about our services, feel free to get in touch. We read every message and reply as soon as we can.</p>
+        </div>
+    </section>
+
+    <section class="info-section">
+        <div class="wrap">
+            <div class="info-grid">
+
+                <div class="info-card">
+                    <div class="icon-circle">🖂</div>
+                    <strong>Email</strong>
+                    <p><a href="mailto:cimet@gmail.com">cimet@gmail.com</a></p>
+                </div>
+
+                <div class="info-card">
+                    <div class="icon-circle">☏</div>
+                    <strong>Phone</strong>
+                    <p><a href="tel:+38970123456">+389 70 123 456</a></p>
+                </div>
+
+                <div class="info-card">
+                    <div class="icon-circle">🖈</div>
+                    <strong>Address</strong>
+                    <p>Bul. Partizanski Odredi 89,</p>
+                    <p>Skopje 1000</p>
+                </div>
+
+                <div class="info-card">
+                    <div class="icon-circle">⏲</div>
+                    <strong>Opening hours</strong>
+                    <p>Mon – Sun:</p>
+                    <p>08:00 – 22:00</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="form-section">
+        <div class="wrap">
+            <div class="form-card">
+                <h2>Send a message</h2>
+                <p>Fill in the form and we will get back to you as soon as possible.</p>
+
+                <form id="contact-form">
+                    <div id="form-success">Thank you! Your message has been sent.</div>
+
+                    <div class="field">
+                        <label for="name">Full name</label>
+                        <div class="input-icon">
+                            <span class="icon">☻</span>
+                            <input type="text" id="name" name="name" placeholder="First name Last name" required>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label for="email">Email</label>
+                        <div class="input-icon">
+                            <span class="icon">🖂</span>
+                            <input type="email" id="email" name="email" placeholder="cimet@gmail.com" required>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label for="phone">Phone</label>
+                        <div class="input-icon">
+                            <span class="icon">☏</span>
+                            <input type="tel" id="phone" name="phone" placeholder="+389 70 123 456">
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label for="message">Message</label>
+                        <div class="input-icon top">
+                            <span class="icon">🗪</span>
+                            <textarea id="message" name="message" placeholder="Write your message here..." required></textarea>
+                        </div>
+                    </div>
+
+                    <button type="submit">Send message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <div class="wrap">
+        <div>
+            <p>Bul. Partizanski Odredi 89, Skopje 1000</p>
+            <p>© 2026 Cimet</p>
+        </div>
+        <div>
+            <a>🅾 𝐈𝐧𝐬𝐭𝐚𝐠𝐫𝐚𝐦 ꕀ ⓕ Facebook ꕀ 【ꚠ】𝗧𝗶𝗸𝗼𝗸<p>cimet.mk</p></a>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
