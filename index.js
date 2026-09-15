@@ -25,7 +25,7 @@ function changeLanguage(targetLang) {
 
     console.log("CHANGED TO "+targetLang)
     
-    document.cookie = `user_lang=${targetLang}; max-age=${365 * 24 * 60 * 60}; path=/; SameSite=Lax`;
+    document.cookie = `lang=${targetLang}; max-age=${365 * 24 * 60 * 60}; path=/; `;
 
     let currentPath = window.location.pathname;
   
