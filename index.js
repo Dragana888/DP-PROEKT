@@ -21,6 +21,23 @@ function getCookie(cookieName) {
     return "";
 }
 
+if (!getCookie("lang")) {
+    document.cookie = "lang=mk; max-age=31536000; path=/";
+}
+
+if (!getCookie("delivery")) {
+    document.cookie = "delivery=none; max-age=31536000; path=/";
+}
+if (!getCookie("name")) {
+    document.cookie = "name=none; max-age=31536000; path=/";
+}
+if (!getCookie("email")) {
+    document.cookie = "email=none; max-age=31536000; path=/";
+}
+if (!getCookie("tel")) {
+    document.cookie = "tel=none; max-age=31536000; path=/";
+}
+
 function changeLanguage(targetLang) {
 
     console.log("CHANGED TO "+targetLang)
@@ -36,7 +53,7 @@ function changeLanguage(targetLang) {
         newPath = currentPath.replace('/mk/', '/prevod/');
     }
     
-    // window.location.href = newPath;
+     window.location.href = newPath;
 }
 
 
