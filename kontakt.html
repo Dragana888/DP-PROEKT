@@ -274,9 +274,7 @@
                 width: 100%;
                 margin-top: 15px;
             }
-        
-        
-          
+
         }
         
         @media (max-width: 480px) {
@@ -288,9 +286,36 @@
             .navbar a {
                 width: 100%; 
             }
-            
-         
         }
+        #lang-switch {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .navbar #lang-switch a {
+            height: auto;
+            margin-top: 0;
+            padding: 6px 12px;
+            font-size: 18px;
+            line-height: 1;
+            border: 2px solid #7a543a;
+            border-radius: 5px;
+        }
+        .navbar #lang-switch a.active {
+            background-color: #7a543a;
+            color: #fff;
+        }
+        @media (max-width: 841px) {
+            #lang-switch {
+                margin-top: 12px;
+                padding-bottom: 10px;
+            }
+        }
+        @media (max-width: 480px) {
+            .navbar #lang-switch a { width: auto; }
+        }
+
     </style>
 </head>
 <body>
@@ -312,6 +337,11 @@
         <a href="kontakt.html">КОНТАКТ</a>
         <a href="lokacija.html">ЛОКАЦИИ</a>
         <a href="zaNas.html">ЗА НАС</a>
+    </div>
+
+    <div id="lang-switch">
+        <a href="kontakt.html" class="active">MK</a>
+        <a href="kontakt en.html">EN</a>
     </div>
     
 </div>
@@ -422,14 +452,5 @@
         </div>
     </div>
 </footer>
-
-<!--<script>-->
-<!--    document.getElementById('contact-form').addEventListener('submit', function(e){-->
-<!--        e.preventDefault();-->
-<!--        document.getElementById('form-success').style.display = 'block';-->
-<!--        this.reset();-->
-<!--    });-->
-<!--</script>-->
-
 </body>
 </html>
