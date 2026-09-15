@@ -36,7 +36,7 @@ function changeLanguage(targetLang) {
         newPath = currentPath.replace('/mk/', '/prevod/');
     }
     
-    window.location.href = newPath;
+    // window.location.href = newPath;
 }
 
 
