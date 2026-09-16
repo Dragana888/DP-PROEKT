@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const currentLang = window.location.pathname.includes('/mk/') ? 'mk' : 'en';
     
-    document.cookie = `user_lang=${currentLang}; max-age=${365 * 24 * 60 * 60}; path=/; `;
+    document.cookie = `lang=${currentLang}; max-age=${365 * 24 * 60 * 60}; path=/; `;
 });
 
 console.log(document.cookie)
