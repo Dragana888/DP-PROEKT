@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>About Us - Cinnamon</title>
+    <link rel="stylesheet" href="../zaNas.css">
+</head>
+<script src="../index.js"></script>
+<body>
+
+<div class="navbar">
+    <div>
+        <div id="logo">
+
+        </div>
+
+        <h3 >C I M E T</h3>
+
+    </div>
+
+    <div id="items">
+        <a href="index.html">HOME</a>
+        <a href="food.html">FOOD</a>
+        <a href="drinks.html">DRINKS</a>
+        <a href="delivery.html">ORDER</a>
+        <a href="kontakt.html">CONTACT</a>
+        <a href="lokacija.html">LOCATIONS</a>
+        <a href="zaNas.html">ABOUT US</a>
+    </div>
+    <div id="lang-switch">
+        <a href="../mk/zaNas.html" onclick="changeLanguage('mk')">MK</a>
+        <a href="zaNas.html" class="active">EN</a>
+    </div>
+</div>
+
+<section class="about-intro">
+    <h1>Our Story</h1>
+    <p>
+        The bakery-cafe "Cimet" started as a small idea in 2022, with a desire to create a warm and peaceful place where the aroma of freshly baked pastries and ground coffee fills the space. Every day, we prepare homemade desserts, artisan coffee, and healthy meals using the highest quality ingredients.
+    </p>
+</section>
+
+<section class="team-section">
+
+    <div class="team-card slide-from-left">
+        <img src="../avatars/dragana.png" alt="Dragana A.">
+        <div class="team-info">
+            <h2>Dragana A.</h2>
+            <h4>Manager</h4>
+            <p>Makes sure everything runs seamlessly and guests feel right at home from the moment they walk in.</p>
+        </div>
+    </div>
+
+    <div class="team-card slide-from-right">
+        <img src="../avatars/nina.png" alt="Nina K.">
+        <div class="team-info">
+            <h2>Nina K.</h2>
+            <h4>Head Barista</h4>
+            <p>Always here to prepare your favorite coffee with a smile.</p>
+        </div>
+    </div>
+
+    <div class="team-card slide-from-left">
+        <img src="../avatars/irina.png" alt="Irina S.">
+        <div class="team-info">
+            <h2>Irina S. </h2>
+            <h4>Head Baker</h4>
+            <p>Makes sure every morning greets you with warm, freshly baked dough and the scent of a new start.</p>
+        </div>
+    </div>
+
+    <div class="team-card slide-from-right">
+        <img src="../avatars/luna.png" alt="Luna B.">
+        <div class="team-info">
+            <h2>Luna B.</h2>
+            <h4>Head Pastry Chef</h4>
+            <p>The creator behind all of our cakes, tarts, and desserts. Every dessert is made with great care and love.</p>
+        </div>
+    </div>
+
+</section>
+
+<footer>
+    <div class="wrap">
+        <div>
+            <p>89 Partizanski Odredi Blvd., Skopje 1000</p>
+            <p>© 2026 Cinnamon</p>
+        </div>
+        <div>
+            <a>🅾 𝐈𝐧𝐬𝐭𝐚𝐠𝐫𝐚𝐦 ꕀ ⓕ Facebook ꕀ 【ꚠ】𝗧𝗶𝗸𝗼𝗸<p>cimet.mk</p></a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const observerOptions = {
+            root: null,
+            threshold: 0.2
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("reveal");
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll(".about-intro, .team-card").forEach((el) => {
+            observer.observe(el);
+        });
+    });
+</script>
+
+</body>
+</html>
