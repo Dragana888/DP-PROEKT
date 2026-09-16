@@ -218,7 +218,7 @@
         .input-icon textarea { min-height: 120px; resize: vertical; }
         .input-icon:focus-within { border-color: var(--accent); }
 
-        button[type="submit"] {
+        input[type="submit"] {
             width: 100%;
             background: var(--accent);
             color: #fff;
@@ -229,7 +229,7 @@
             border-radius: 6px;
             cursor: pointer;
         }
-        button[type="submit"]:hover { opacity: 0.9; }
+        input[type="submit"]:hover { opacity: 0.9; }
 
         .form-note {
             font-size: 13px;
@@ -399,7 +399,7 @@
                 <h2>Испратете порака</h2>
                 <p>Пополнете го формуларот и ќе Ви одговориме што е можно поскоро.</p>
 
-                <form id="contact-form">
+                <form id="contact-form" action="https://formspree.io/f/mwlpenqe" method="POST">
                     <div id="form-success">Ви благодариме! Пораката е испратена.</div>
 
                     <div class="field">
@@ -433,8 +433,9 @@
                             <textarea id="message" name="message" placeholder="Вашата порака пишете ја тука..." required></textarea>
                         </div>
                     </div>
-
-                    <button type="submit">Испрати порака</button>
+                    <input type="hidden" name="_subject" id="email-subject">
+                    <input type="hidden" name="body" id="email-body">
+                    <input type="submit" value="Испрати порака">
                 </form>
             </div>
         </div>
@@ -454,4 +455,23 @@
     </div>
 </footer>
 </body>
+<script>
+    let form = document.getElementById("contact-form");
+
+    form.addEventListener("submit", function () {
+        let name = document.getElementById("name").value;
+        let email = document.getElementById("email").value;
+        let phone = document.getElementById("phone").value;
+        let message = document.getElementById("message").value;
+    
+        document.getElementById("email-subject").value =
+            `Ново прашање од ${name}`;
+    
+        document.getElementById("email-body").value =
+    `
+    ${message}
+    
+    Телефон: ${phone}`;
+    });
+</script>
 </html>
