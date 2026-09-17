@@ -315,3 +315,31 @@ footer a { color: #fff; }
     
  
 }
+#lang-switch {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .navbar #lang-switch a {
+            height: auto;
+            margin-top: 0;
+            padding: 6px 12px;
+            font-size: 18px;
+            line-height: 1;
+            border: 2px solid #7a543a;
+            border-radius: 5px;
+        }
+        .navbar #lang-switch a.active {
+            background-color: #7a543a;
+            color: #fff;
+        }
+        @media (max-width: 841px) {
+            #lang-switch {
+                margin-top: 12px;
+                padding-bottom: 10px;
+            }
+        }
+        @media (max-width: 480px) {
+            .navbar #lang-switch a { width: auto; }
+        }
