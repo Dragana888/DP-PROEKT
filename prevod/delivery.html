@@ -64,14 +64,10 @@
         if(delivery!= 'none'){
             if(window.confirm("Do you want to order from "+delivery+ " again?")){
                 console.log(delivery)
-                if(delivery==='Wolt'){
-                    window.open("https://wolt.com/mk/discovery","_blank")
-                    console.log("Otvori Wolt!")
-                }
-                    
-                else{
-                    window.open("https://korpa.mk/","_blank")
-                    console.log("Otvori Korpa!")
+                if (delivery === 'Wolt') {
+                    window.location.href = "https://wolt.com/mk/discovery";
+                } else {
+                    window.location.href = "https://korpa.mk/";
                 }
             }
         }
