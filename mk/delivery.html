@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="../styleHomeDel.css">
 
 </head>
-<script src="../index.js"></script>
 <body>
     <div class="navbar">
         <div>
@@ -42,8 +41,8 @@
             кои ќе ви jа достават до било коjа локациjа во Скопjе.</p>
         </div>
         <div id="partners">
-            <a id="wolt" target="_blank" href="https://wolt.com/mk/discovery"></a>
-            <a id="korpa" target="_blank" href="https://korpa.mk/"></a>
+            <a id="wolt" target="_blank" onclick="changeDelivery('Wolt')" href="https://wolt.com/mk/discovery"></a>
+            <a id="korpa" target="_blank" onclick="changeDelivery('Korpa')" href="https://korpa.mk/"></a>
            
         </div>
     </div>
@@ -58,5 +57,19 @@
             </div>
         </div>
     </footer>
+    <script src="../index.js"></script>
+    <script>
+        let delivery = getCookie('delivery')
+        if(delivery!= 'none'){
+            if(window.confirm("Дали пак сакате да нарачате од "+delivery+ "?")){
+                console.log(delivery)
+                if (delivery === 'Wolt') {
+                    window.location.href = "https://wolt.com/mk/discovery";
+                } else {
+                    window.location.href = "https://korpa.mk/";
+                }
+            }
+        }
+    </script>
 </body>
 </html>
