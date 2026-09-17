@@ -42,8 +42,8 @@
             <p>you can place an order through our partners who will deliver it to any location in Skopje.</p>
         </div>
         <div id="partners">
-            <a id="wolt" target="_blank" href="https://wolt.com/mk/discovery"></a>
-            <a id="korpa" target="_blank" href="https://korpa.mk/"></a>
+            <a id="wolt" target="_blank" onclick="changeDelivery('Wolt')" href="https://wolt.com/mk/discovery"></a>
+            <a id="korpa" target="_blank" onclick="changeDelivery('Korpa')" href="https://korpa.mk/"></a>
            
         </div>
     </div>
@@ -58,5 +58,17 @@
             </div>
         </div>
     </footer>
+    <script>
+        let delivery = getCookie('delivery')
+        if(delivery!= 'none'){
+            if(window.confirm("Do you want to order from "+delivery+ " again?")){
+                if(delivery==='Wolt')
+                    window.open('https://wolt.com/mk/discovery')
+                else
+                    window.open('https://korpa.mk/')
+
+            }
+        }
+    </script>
 </body>
 </html>
