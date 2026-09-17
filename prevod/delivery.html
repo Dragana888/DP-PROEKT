@@ -63,11 +63,16 @@
         let delivery = getCookie('delivery')
         if(delivery!= 'none'){
             if(window.confirm("Do you want to order from "+delivery+ " again?")){
-                if(delivery==='Wolt')
+                console.log(delivery)
+                if(delivery==='Wolt'){
                     window.open('https://wolt.com/mk/discovery')
-                else
+                    console.log("Otvori Wolt!")
+                }
+                    
+                else{
                     window.open('https://korpa.mk/')
-
+                    console.log("Otvori Korpa!")
+                }
             }
         }
     </script>
