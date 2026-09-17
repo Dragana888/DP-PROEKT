@@ -52,6 +52,11 @@ function changeLanguage(targetLang) {
      window.location.href = newPath;
 }
 
+function changeDelivery(del) {
+    
+    document.cookie = `delivery=${del}; max-age=${365 * 24 * 60 * 60}; path=/`;
+    
+}
 
 document.addEventListener('DOMContentLoaded', () => {
 
