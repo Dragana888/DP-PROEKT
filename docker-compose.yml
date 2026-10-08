@@ -19,3 +19,10 @@ services:
       - ./logo.png:/usr/share/nginx/html/logo.png:ro
       - ./korpa.png:/usr/share/nginx/html/korpa.png:ro
       - ./cat-cats.gif:/usr/share/nginx/html/cat-cats.gif:ro
+      - ./styleHomeDel.css:/usr/share/nginx/html/styleHomeDel.css:ro
+      - ./background1.jpg:/usr/share/nginx/html/background1.jpg:ro
+      - ./index.js:/usr/share/nginx/html/index.js:ro
+      - ./"Glina Script em..otf":/usr/share/nginx/html/"Glina Script em..otf":ro
+      
+      
+      
