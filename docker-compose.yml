@@ -8,3 +8,14 @@ services:
       - ./index.html:/usr/share/nginx/html/index.html:ro
       - ./mk:/usr/share/nginx/mk:ro
       - ./prevod:/usr/share/nginx/prevod:ro
+      - ./imagesFood:/usr/share/nginx/html/imagesFood:ro
+      - ./images-drinks:/usr/share/nginx/html/images-drinks:ro
+      - ./avatars:/usr/share/nginx/html/avatars:ro
+      - ./style.css:/usr/share/nginx/html/style.css:ro
+      - ./styleFood.css:/usr/share/nginx/html/styleFood.css:ro
+      - ./style-drinks.css:/usr/share/nginx/html/style-drinks.css:ro
+      - ./pastries.png:/usr/share/nginx/html/pastries.png:ro
+      - ./paper.png:/usr/share/nginx/html/paper.png:ro
+      - ./logo.png:/usr/share/nginx/html/logo.png:ro
+      - ./korpa.png:/usr/share/nginx/html/korpa.png:ro
+      - ./cat-cats.gif:/usr/share/nginx/html/cat-cats.gif:ro
