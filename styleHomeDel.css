@@ -38,6 +38,7 @@ body{
     background-size: 300px;
     background-blend-mode: soft-light;
     background-attachment: fixed;
+    min-height:90vh;
 }
 
 .navbar,footer, #slide{
