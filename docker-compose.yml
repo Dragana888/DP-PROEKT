@@ -23,7 +23,7 @@ services:
       - ./styleHomeDel.css:/usr/share/nginx/html/styleHomeDel.css:ro
       - ./background1.jpg:/usr/share/nginx/html/background1.jpg:ro
       - ./index.js:/usr/share/nginx/html/index.js:ro
-      - ".Glina Script em..otf:/usr/share/nginx/html/Glina Script em..otf:ro"
+      - "./Glina Script em..otf:/usr/share/nginx/html/Glina Script em..otf:ro"
       - ./zaNas.css:/usr/share/nginx/html/zaNas.css:ro
       - ./backgGif.gif:/usr/share/nginx/html/backgGif.gif:ro
       
