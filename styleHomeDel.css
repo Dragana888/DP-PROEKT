@@ -384,6 +384,7 @@ footer a { color: #fff; }
     }
     #about>div:first-child{
         margin: auto;
+        width:60vw;
     }
 }
 
